@@ -28,7 +28,7 @@ public class ListUtilTest {
 
     @Test
     public void testLast() {
-        assertTrue(head(range(1,5)).equals(5));
+        assertTrue(last(range(1,5)).equals(5));
     }
 
     @Test
