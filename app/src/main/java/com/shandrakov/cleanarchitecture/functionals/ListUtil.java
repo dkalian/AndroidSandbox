@@ -9,7 +9,6 @@ public final class ListUtil {
      *   |head|
      *   | 01 | 02 | 03 | 04 | 05 |
      *
-     *   for empty list throw runtime exception
      */
     public static <T> T head(List<T> list) {
         return list.get(0);
@@ -45,7 +44,6 @@ public final class ListUtil {
      *                       |last|
      *   | 01 | 02 | 03 | 04 | 05 |
      *
-     *   for empty list return nothing
      */
     public static <T> T last(List<T> list) {
         return list.get(list.size()-1);
