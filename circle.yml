@@ -1,4 +1,11 @@
-:
+machine:
+environment:
+ANDROID_HOME: /home/ubuntu/android
+GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+java:
+version: oraclejdk8
+
+dependencies: 
   pre:
       - echo y | android update sdk --no-ui --all --filter "build-Tools-24.0.2"
       - echo y | android update sdk --no-ui --all --filter "android-24"
