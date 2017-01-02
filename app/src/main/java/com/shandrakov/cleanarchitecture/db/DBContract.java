@@ -20,4 +20,6 @@ interface User {
                 .query();
     }
 
+    String DB_NAME = "DB_EXAMPLE";
+    int DB_VERSION = 1;
 }

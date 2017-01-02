@@ -4,7 +4,7 @@ package com.shandrakov.cleanarchitecture.db;
  * Each column in an SQLite 3 database is assigned
  * one of the following type affinities.
  */
-public enum ColumnType implements SQLBuilder {
+public enum ColumnType implements SqlSpecification {
     // The value is a text string, stored using
     // the database encoding (UTF-8, UTF-16BE or UTF-16LE).
     TEXT,
@@ -22,7 +22,7 @@ public enum ColumnType implements SQLBuilder {
     NUMERIC;
 
     @Override
-    public String compile() {
+    public String query() {
         return name();
     }
 }

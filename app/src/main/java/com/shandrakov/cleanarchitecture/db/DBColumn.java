@@ -19,7 +19,7 @@ public class DBColumn implements SqlSpecification {
     public String query() {
         return COLUMN_PATTERN
                 .replace("{name}", _name)
-                .replace("{type}", _type.compile())
+                .replace("{type}", _type.query())
                 .replace("{options}", _options.or(""));
     }
 
