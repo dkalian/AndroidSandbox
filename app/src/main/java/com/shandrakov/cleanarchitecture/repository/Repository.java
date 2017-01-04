@@ -18,7 +18,7 @@ public interface Repository<T> {
     void add(T value);
     void add(List<T> value);
     void update(T value);
-    void remove(T value);
-    void remove(Specification specification);
-    Observable<List<T>> query(Specification specification);
+    int remove(T value);
+    int remove(Specification specification);
+    List<T> query(Specification specification);
 }

@@ -52,26 +52,24 @@ public class SqlRepoExample implements Repository<SqlUser> {
     }
 
     @Override
-    public void remove(SqlUser value) {
-
-        if (!value.id().isValue()) return;
-
-        remove(new RowById(value.id().value()));
+    public int remove(SqlUser user) {
+        return user.id().isValue()
+                ? remove(new RowById(user.id().value()))
+                : 0;
     }
 
     @Override
-    public void remove(Specification specification) {
+    public int remove(Specification specification) {
         SqlSpecification sqlSpecification = (SqlSpecification) specification;
 
         SQLiteDatabase db = _dbOpenHelper.getWritableDatabase();
 
-        db.delete(DBContract.User.NAME,
+        return db.delete(DBContract.User.NAME,
                  sqlSpecification.query(), null);
-
     }
 
     @Override
-    public Observable<List<SqlUser>> query(Specification specification) {
+    public List<SqlUser> query(Specification specification) {
         SQLiteDatabase db = _dbOpenHelper.getReadableDatabase();
 
         final Cursor cursor = db.query(
@@ -80,11 +78,7 @@ public class SqlRepoExample implements Repository<SqlUser> {
         final List<SqlUser> users = new CursorToDBUser().from(cursor);
         cursor.close();
 
-        return Observable.create(subscriber -> {
-            subscriber.onStart();
-            subscriber.onNext(users);
-            subscriber.onCompleted();
-        });
+        return users;
     }
 
     private final DBOpenHelper _dbOpenHelper;

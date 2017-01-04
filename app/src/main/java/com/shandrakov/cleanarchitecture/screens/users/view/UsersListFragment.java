@@ -2,18 +2,20 @@ package com.shandrakov.cleanarchitecture.screens.users.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.shandrakov.cleanarchitecture.R;
 import com.shandrakov.cleanarchitecture.mvp.BaseFragment;
 import com.shandrakov.cleanarchitecture.screens.UsersListAdapter;
-import com.shandrakov.cleanarchitecture.screens.users.presenter.IUserListPresenter;
-import com.shandrakov.cleanarchitecture.screens.users.presenter.UserListPresenter;
+import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserName;
+import com.shandrakov.cleanarchitecture.screens.users.entity.UserName;
+import com.shandrakov.cleanarchitecture.screens.users.presenter.UsersPresenter;
 
-import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 
 public class UsersListFragment extends BaseFragment
@@ -32,16 +34,47 @@ public class UsersListFragment extends BaseFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        _users = (ListView) view.findViewById(R.id.users_list);
-        final UsersListAdapter adapter = new UsersListAdapter(getActivity());
-        _users.setAdapter(adapter);
+        RecyclerView users = (RecyclerView) view.findViewById(R.id.users_list);
+        users.setLayoutManager(new LinearLayoutManager(getActivity()));
+        users.setAdapter(_listAdapter);
+
+        ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+
+                return true;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                int position = viewHolder.getAdapterPosition();
+                UserName userName = _listAdapter.users().get(position);
+
+                _userListPresenter
+                        .deleteUser(userName.id(), getActivity())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                        next -> {
+                            _listAdapter.remove(userName);
+                            _listAdapter.notifyItemRemoved(position);
+                        }
+                );
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
+
+        itemTouchHelper.attachToRecyclerView(users);
 
         _userListPresenter.getUsers(getActivity())
-                .flatMap(list -> Observable.from(list))
+                .map(user -> SqlUserToUserName.create().from(user))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         user -> {
-                            adapter.add(user.name());
+                            _listAdapter.add(user);
                         }
                 );
     }
@@ -49,7 +82,6 @@ public class UsersListFragment extends BaseFragment
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
     @Override
@@ -57,6 +89,6 @@ public class UsersListFragment extends BaseFragment
         return getActivity();
     }
 
-    private ListView _users;
-    private final IUserListPresenter _userListPresenter = new UserListPresenter();
+    private final UsersListAdapter _listAdapter = new UsersListAdapter();
+    private final UsersPresenter _userListPresenter = new UsersPresenter();
 }
