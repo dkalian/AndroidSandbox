@@ -7,11 +7,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import rx.functions.Action1;
 
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
-     public void register(BasePresenter presenter) {
+    public void register(BasePresenter presenter) {
         _presenters.add(presenter);
-     }
+    }
 
     @Override
     public void onStart() {
@@ -25,7 +25,7 @@ public class BaseFragment extends Fragment {
         super.onStop();
     }
 
-    private static void makeActionForPresenters(
+    private static void makeActionForPresenters (
             List<BasePresenter> presenters,
             Action1<BasePresenter> action) {
 
