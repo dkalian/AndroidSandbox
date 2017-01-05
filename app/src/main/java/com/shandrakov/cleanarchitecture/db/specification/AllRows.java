@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.db.specifications;
+package com.shandrakov.cleanarchitecture.db.specification;
 
 
 import com.shandrakov.cleanarchitecture.db.SqlSpecification;

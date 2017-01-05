@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
-import com.shandrakov.cleanarchitecture.db.specifications.AllRows;
-import com.shandrakov.cleanarchitecture.db.specifications.RowById;
+import com.shandrakov.cleanarchitecture.db.specification.AllRows;
+import com.shandrakov.cleanarchitecture.db.specification.RowById;
 import com.shandrakov.cleanarchitecture.mvp.BasePresenter;
 import com.shandrakov.cleanarchitecture.screens.users.presenter.DeleteUserPresenting;
 import com.shandrakov.cleanarchitecture.screens.users.presenter.UsersListPresenting;

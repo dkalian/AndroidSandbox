@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.db.specifications;
+package com.shandrakov.cleanarchitecture.db.specification;
 
 import android.provider.BaseColumns;
 import android.text.TextUtils;

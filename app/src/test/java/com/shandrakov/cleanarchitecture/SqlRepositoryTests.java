@@ -2,7 +2,7 @@ package com.shandrakov.cleanarchitecture;
 
 import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
-import com.shandrakov.cleanarchitecture.db.specifications.AllRows;
+import com.shandrakov.cleanarchitecture.db.specification.AllRows;
 import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 import org.junit.Before;
@@ -13,8 +13,6 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import java.util.List;
-
-import rx.observers.TestSubscriber;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

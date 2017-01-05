@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
-import com.shandrakov.cleanarchitecture.db.specifications.UserByEmail;
+import com.shandrakov.cleanarchitecture.db.specification.UserByEmail;
 import com.shandrakov.cleanarchitecture.functional.ListUtil;
 import com.shandrakov.cleanarchitecture.repository.Repository;
 import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserProfile;

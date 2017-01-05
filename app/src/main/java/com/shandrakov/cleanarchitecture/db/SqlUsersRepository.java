@@ -7,14 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import com.shandrakov.cleanarchitecture.db.entity.CursorToDBUser;
 import com.shandrakov.cleanarchitecture.db.entity.DBUserToContentValues;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
-import com.shandrakov.cleanarchitecture.db.specifications.RowById;
+import com.shandrakov.cleanarchitecture.db.specification.RowById;
 import com.shandrakov.cleanarchitecture.repository.Repository;
 import com.shandrakov.cleanarchitecture.repository.Specification;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import rx.Observable;
 
 public class SqlUsersRepository implements Repository<SqlUser> {
 
