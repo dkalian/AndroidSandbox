@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.view;
+package com.shandrakov.cleanarchitecture.screens.users.show;
 
 import com.shandrakov.cleanarchitecture.mvp.BaseView;
 

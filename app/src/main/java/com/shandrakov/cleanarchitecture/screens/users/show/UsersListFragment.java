@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.view;
+package com.shandrakov.cleanarchitecture.screens.users.show;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,10 +11,8 @@ import android.view.ViewGroup;
 
 import com.shandrakov.cleanarchitecture.R;
 import com.shandrakov.cleanarchitecture.mvp.BaseFragment;
-import com.shandrakov.cleanarchitecture.screens.UsersListAdapter;
 import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserName;
 import com.shandrakov.cleanarchitecture.screens.users.entity.UserName;
-import com.shandrakov.cleanarchitecture.screens.users.presenter.UsersPresenter;
 
 import rx.android.schedulers.AndroidSchedulers;
 

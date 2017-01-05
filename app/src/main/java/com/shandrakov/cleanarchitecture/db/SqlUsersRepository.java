@@ -16,9 +16,9 @@ import java.util.List;
 
 import rx.Observable;
 
-public class SqlRepoExample implements Repository<SqlUser> {
+public class SqlUsersRepository implements Repository<SqlUser> {
 
-    public SqlRepoExample(Context context) {
+    public SqlUsersRepository(Context context) {
         _dbOpenHelper = new DBOpenHelper(context);
     }
 

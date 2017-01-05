@@ -1,6 +1,6 @@
 package com.shandrakov.cleanarchitecture;
 
-import com.shandrakov.cleanarchitecture.db.SqlRepoExample;
+import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
 import com.shandrakov.cleanarchitecture.db.specifications.AllRows;
 import com.shandrakov.cleanarchitecture.functionals.Maybe;
@@ -14,7 +14,6 @@ import org.robolectric.annotation.Config;
 
 import java.util.List;
 
-import rx.Subscriber;
 import rx.observers.TestSubscriber;
 
 import static org.junit.Assert.assertFalse;
@@ -26,13 +25,13 @@ public class SqlRepositoryTests {
 
     @Before
     public void init() {
-        SqlRepoExample repoExample = new SqlRepoExample(RuntimeEnvironment.application);
+        SqlUsersRepository repoExample = new SqlUsersRepository(RuntimeEnvironment.application);
         repoExample.remove(new AllRows());
     }
 
     @Test
     public void crudTest() {
-        SqlRepoExample repoExample = new SqlRepoExample(RuntimeEnvironment.application);
+        SqlUsersRepository repoExample = new SqlUsersRepository(RuntimeEnvironment.application);
 
         SqlUser user = new SqlUser(
                 Maybe.nothing(),
