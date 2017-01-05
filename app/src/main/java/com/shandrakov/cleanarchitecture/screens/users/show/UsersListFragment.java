@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.shandrakov.cleanarchitecture.R;
 import com.shandrakov.cleanarchitecture.mvp.BaseFragment;
 import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserName;
+import com.shandrakov.cleanarchitecture.screens.users.edit.UserProfileActivity;
 import com.shandrakov.cleanarchitecture.screens.users.entity.UserName;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -32,9 +33,13 @@ public class UsersListFragment extends BaseFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView users = (RecyclerView) view.findViewById(R.id.users_list);
+        final RecyclerView users = (RecyclerView) view.findViewById(R.id.users_list);
         users.setLayoutManager(new LinearLayoutManager(getActivity()));
-        users.setAdapter(_listAdapter);
+
+        final UsersListAdapter listAdapter = new UsersListAdapter(
+                userId -> UserProfileActivity.startEditingActivity(getActivity(), userId));
+
+        users.setAdapter(listAdapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
@@ -49,15 +54,15 @@ public class UsersListFragment extends BaseFragment
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 int position = viewHolder.getAdapterPosition();
-                UserName userName = _listAdapter.users().get(position);
+                UserName userName = listAdapter.users().get(position);
 
                 _userListPresenter
                         .deleteUser(userName.id(), getActivity())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                         next -> {
-                            _listAdapter.remove(userName);
-                            _listAdapter.notifyItemRemoved(position);
+                            listAdapter.remove(userName);
+                            listAdapter.notifyItemRemoved(position);
                         }
                 );
             }
@@ -72,7 +77,7 @@ public class UsersListFragment extends BaseFragment
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         user -> {
-                            _listAdapter.add(user);
+                            listAdapter.add(user);
                         }
                 );
     }
@@ -87,6 +92,5 @@ public class UsersListFragment extends BaseFragment
         return getActivity();
     }
 
-    private final UsersListAdapter _listAdapter = new UsersListAdapter();
     private final UsersPresenter _userListPresenter = new UsersPresenter();
 }

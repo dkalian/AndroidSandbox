@@ -14,6 +14,10 @@ import java.util.List;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.UserNameViewHolder> {
 
+    public UsersListAdapter(OnUserLongClickListener onUserLongClickListener) {
+        _onUserLongClickListener = onUserLongClickListener;
+    }
+
     @Override
     public UserNameViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -25,7 +29,12 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.User
 
     @Override
     public void onBindViewHolder(UserNameViewHolder holder, int position) {
-        holder.userName.setText(_users.get(position).name());
+        UserName selectedUser = _users.get(position);
+        holder.userName.setText(selectedUser.name());
+        holder.itemView.setOnLongClickListener(v -> {
+            _onUserLongClickListener.onLongClick(selectedUser.id());
+            return true;
+        });
     }
 
     @Override
@@ -54,5 +63,10 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.User
         return new ArrayList<>(_users);
     }
 
-    private List<UserName> _users = new ArrayList<>();
+    public interface OnUserLongClickListener {
+        void onLongClick(int userId);
+    }
+
+    private final OnUserLongClickListener _onUserLongClickListener;
+    private final List<UserName> _users = new ArrayList<>();
 }
