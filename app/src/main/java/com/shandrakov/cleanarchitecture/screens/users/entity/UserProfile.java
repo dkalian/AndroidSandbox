@@ -1,7 +1,7 @@
 package com.shandrakov.cleanarchitecture.screens.users.entity;
 
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
-import com.shandrakov.cleanarchitecture.functionals.Validate;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Validate;
 import com.shandrakov.cleanarchitecture.primitive.Email;
 import com.shandrakov.cleanarchitecture.primitive.Name;
 

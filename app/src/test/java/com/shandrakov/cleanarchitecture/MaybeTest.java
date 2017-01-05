@@ -1,6 +1,6 @@
 package com.shandrakov.cleanarchitecture;
 
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

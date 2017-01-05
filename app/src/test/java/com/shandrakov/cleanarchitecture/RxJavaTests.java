@@ -1,29 +1,12 @@
 package com.shandrakov.cleanarchitecture;
 
-import android.util.Log;
-
-import com.shandrakov.cleanarchitecture.functionals.ListUtil;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.objectweb.asm.commons.StaticInitMerger;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringJoiner;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import rx.Observable;
-import rx.Observable.OnSubscribe;
-import rx.Subscriber;
-import rx.functions.Action0;
-import rx.functions.Action1;
-import rx.functions.Func1;
 import rx.observers.TestSubscriber;
-import rx.schedulers.Schedulers;
 
 import static org.junit.Assert.assertTrue;
 

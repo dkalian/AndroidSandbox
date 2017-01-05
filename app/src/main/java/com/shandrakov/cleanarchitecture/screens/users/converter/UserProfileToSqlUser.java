@@ -1,8 +1,8 @@
 package com.shandrakov.cleanarchitecture.screens.users.converter;
 
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
-import com.shandrakov.cleanarchitecture.functionals.Converter;
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Converter;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 import com.shandrakov.cleanarchitecture.screens.users.entity.UserProfile;
 
 public class UserProfileToSqlUser implements Converter<UserProfile, SqlUser> {

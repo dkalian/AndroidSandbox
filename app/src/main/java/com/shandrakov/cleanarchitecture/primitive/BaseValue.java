@@ -1,6 +1,6 @@
 package com.shandrakov.cleanarchitecture.primitive;
 
-import com.shandrakov.cleanarchitecture.functionals.Validate;
+import com.shandrakov.cleanarchitecture.functional.Validate;
 
 import java.io.Serializable;
 

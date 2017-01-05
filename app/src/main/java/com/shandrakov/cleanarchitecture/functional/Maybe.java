@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.functionals;
+package com.shandrakov.cleanarchitecture.functional;
 
 /*
  * The Maybe provides a way to make a safety wrapper around partial functions,

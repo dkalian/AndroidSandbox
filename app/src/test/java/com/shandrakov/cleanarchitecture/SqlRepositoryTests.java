@@ -3,7 +3,7 @@ package com.shandrakov.cleanarchitecture;
 import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
 import com.shandrakov.cleanarchitecture.db.specifications.AllRows;
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 import org.junit.Before;
 import org.junit.Test;

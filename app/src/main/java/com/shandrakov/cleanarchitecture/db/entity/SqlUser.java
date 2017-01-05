@@ -1,6 +1,6 @@
 package com.shandrakov.cleanarchitecture.db.entity;
 
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 public class SqlUser {
 
