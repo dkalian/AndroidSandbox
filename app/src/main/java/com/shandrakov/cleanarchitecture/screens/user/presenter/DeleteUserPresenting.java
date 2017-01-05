@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.presenter;
+package com.shandrakov.cleanarchitecture.screens.user.presenter;
 
 import android.content.Context;
 

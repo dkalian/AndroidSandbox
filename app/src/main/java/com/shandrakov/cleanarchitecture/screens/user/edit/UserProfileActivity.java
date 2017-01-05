@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.edit;
+package com.shandrakov.cleanarchitecture.screens.user.edit;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.shandrakov.cleanarchitecture.R;
 import com.shandrakov.cleanarchitecture.db.DBTable;
 import com.shandrakov.cleanarchitecture.mvp.BaseActivity;
-import com.shandrakov.cleanarchitecture.screens.users.entity.UserProfile;
+import com.shandrakov.cleanarchitecture.screens.user.entity.UserProfile;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

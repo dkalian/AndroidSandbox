@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.show;
+package com.shandrakov.cleanarchitecture.screens.user.show;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shandrakov.cleanarchitecture.R;
-import com.shandrakov.cleanarchitecture.screens.users.entity.UserName;
+import com.shandrakov.cleanarchitecture.screens.user.entity.UserName;
 
 import java.util.ArrayList;
 import java.util.List;

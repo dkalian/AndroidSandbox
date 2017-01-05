@@ -11,8 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.shandrakov.cleanarchitecture.screens.users.edit.UserProfileActivity;
-import com.shandrakov.cleanarchitecture.screens.users.show.UsersListFragment;
+import com.shandrakov.cleanarchitecture.screens.user.edit.UserProfileActivity;
+import com.shandrakov.cleanarchitecture.screens.user.show.UsersListFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

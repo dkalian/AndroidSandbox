@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.edit;
+package com.shandrakov.cleanarchitecture.screens.user.edit;
 
 import android.content.Context;
 
@@ -7,9 +7,9 @@ import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
 import com.shandrakov.cleanarchitecture.db.specification.UserByEmail;
 import com.shandrakov.cleanarchitecture.functional.ListUtil;
 import com.shandrakov.cleanarchitecture.repository.Repository;
-import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserProfile;
-import com.shandrakov.cleanarchitecture.screens.users.converter.UserProfileToSqlUser;
-import com.shandrakov.cleanarchitecture.screens.users.entity.UserProfile;
+import com.shandrakov.cleanarchitecture.screens.user.converter.SqlUserToUserProfile;
+import com.shandrakov.cleanarchitecture.screens.user.converter.UserProfileToSqlUser;
+import com.shandrakov.cleanarchitecture.screens.user.entity.UserProfile;
 
 import java.util.List;
 

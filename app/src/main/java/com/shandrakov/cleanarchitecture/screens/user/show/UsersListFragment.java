@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.show;
+package com.shandrakov.cleanarchitecture.screens.user.show;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,11 +11,8 @@ import android.view.ViewGroup;
 
 import com.shandrakov.cleanarchitecture.R;
 import com.shandrakov.cleanarchitecture.mvp.BaseFragment;
-import com.shandrakov.cleanarchitecture.screens.users.converter.SqlUserToUserName;
-import com.shandrakov.cleanarchitecture.screens.users.edit.UserProfileActivity;
-import com.shandrakov.cleanarchitecture.screens.users.entity.UserName;
-
-import rx.android.schedulers.AndroidSchedulers;
+import com.shandrakov.cleanarchitecture.screens.user.edit.UserProfileActivity;
+import com.shandrakov.cleanarchitecture.screens.user.entity.UserName;
 
 public class UsersListFragment extends BaseFragment
                             implements UserListView {
@@ -36,10 +33,10 @@ public class UsersListFragment extends BaseFragment
         final RecyclerView users = (RecyclerView) view.findViewById(R.id.users_list);
         users.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        final UsersListAdapter listAdapter = new UsersListAdapter(
+        _usersListAdapter = new UsersListAdapter(
                 userId -> UserProfileActivity.startEditingActivity(getActivity(), userId));
 
-        users.setAdapter(listAdapter);
+        users.setAdapter(_usersListAdapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
@@ -54,17 +51,8 @@ public class UsersListFragment extends BaseFragment
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 int position = viewHolder.getAdapterPosition();
-                UserName userName = listAdapter.users().get(position);
-
-                _userListPresenter
-                        .deleteUser(userName.id(), getActivity())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                        next -> {
-                            listAdapter.remove(userName);
-                            listAdapter.notifyItemRemoved(position);
-                        }
-                );
+                UserName userName = _usersListAdapter.users().get(position);
+                _userListPresenter.onUserItemSwiped(userName, position);
             }
         };
 
@@ -72,19 +60,17 @@ public class UsersListFragment extends BaseFragment
 
         itemTouchHelper.attachToRecyclerView(users);
 
-        _userListPresenter.getUsers(getActivity())
-                .map(user -> SqlUserToUserName.create().from(user))
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        user -> {
-                            listAdapter.add(user);
-                        }
-                );
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void removeUserInPosition(UserName userName, int position) {
+        _usersListAdapter.remove(userName);
+        _usersListAdapter.notifyItemRemoved(position);
+    }
+
+    @Override
+    public void addUser(UserName userName) {
+        _usersListAdapter.add(userName);
     }
 
     @Override
@@ -92,5 +78,6 @@ public class UsersListFragment extends BaseFragment
         return getActivity();
     }
 
-    private final UsersPresenter _userListPresenter = new UsersPresenter();
+    private final UsersPresenter _userListPresenter = new UsersPresenter(this);
+    private UsersListAdapter _usersListAdapter;
 }

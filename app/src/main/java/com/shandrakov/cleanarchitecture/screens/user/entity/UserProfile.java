@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.screens.users.entity;
+package com.shandrakov.cleanarchitecture.screens.user.entity;
 
 import com.shandrakov.cleanarchitecture.functional.Maybe;
 import com.shandrakov.cleanarchitecture.functional.Validate;

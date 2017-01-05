@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
-public class SqlRepositoryTests {
+public class SqlRepositoryTest {
 
     @Before
     public void init() {
@@ -54,6 +54,5 @@ public class SqlRepositoryTests {
         repoExample.update(changedUser);
 
         assertFalse(repoExample.query(new AllRows()).isEmpty());
-
     }
 }

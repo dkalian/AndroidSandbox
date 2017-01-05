@@ -1,7 +1,7 @@
-package com.shandrakov.cleanarchitecture.screens.users.edit;
+package com.shandrakov.cleanarchitecture.screens.user.edit;
 
 import com.shandrakov.cleanarchitecture.mvp.BaseView;
-import com.shandrakov.cleanarchitecture.screens.users.entity.UserProfile;
+import com.shandrakov.cleanarchitecture.screens.user.entity.UserProfile;
 
 public interface UserProfileView extends BaseView{
 

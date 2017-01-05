@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".screens.users.edit.UserProfileActivity"/>
+        <activity android:name=".screens.user.edit.UserProfileActivity"/>
 
     </application>
 
