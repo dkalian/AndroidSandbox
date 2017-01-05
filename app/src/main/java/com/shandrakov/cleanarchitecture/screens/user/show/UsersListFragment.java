@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shandrakov.cleanarchitecture.R;
+import com.shandrakov.sandbox.R;
 import com.shandrakov.cleanarchitecture.mvp.BaseFragment;
 import com.shandrakov.cleanarchitecture.screens.user.edit.UserProfileActivity;
 import com.shandrakov.cleanarchitecture.screens.user.entity.UserName;

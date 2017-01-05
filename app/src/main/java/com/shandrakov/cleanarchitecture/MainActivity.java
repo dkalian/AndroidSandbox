@@ -20,33 +20,33 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(com.shandrakov.sandbox.R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(com.shandrakov.sandbox.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(com.shandrakov.sandbox.R.id.fab);
         fab.setOnClickListener(view -> {
             createNewUser();
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.shandrakov.sandbox.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, com.shandrakov.sandbox.R.string.navigation_drawer_open, com.shandrakov.sandbox.R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(com.shandrakov.sandbox.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_fragment, new UsersListFragment())
+                .replace(com.shandrakov.sandbox.R.id.content_fragment, new UsersListFragment())
                 .commit();
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.shandrakov.sandbox.R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(com.shandrakov.sandbox.R.menu.main, menu);
         return true;
     }
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        if (id == com.shandrakov.sandbox.R.id.action_settings) {
             return true;
         }
 
@@ -77,21 +77,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == com.shandrakov.sandbox.R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == com.shandrakov.sandbox.R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == com.shandrakov.sandbox.R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == com.shandrakov.sandbox.R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == com.shandrakov.sandbox.R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == com.shandrakov.sandbox.R.id.nav_send) {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(com.shandrakov.sandbox.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

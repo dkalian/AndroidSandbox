@@ -11,7 +11,8 @@ public interface UserProfileView extends BaseView{
     }
 
     void showUser(UserProfile user);
-    void shoeError(String errorMessage);
+    void showError(String errorMessage);
     void hideSaveButton();
     void showSaveButton();
+    void closeView();
 }

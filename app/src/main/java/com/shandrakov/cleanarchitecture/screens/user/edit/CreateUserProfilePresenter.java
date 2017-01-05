@@ -14,11 +14,32 @@ import com.shandrakov.cleanarchitecture.screens.user.entity.UserProfile;
 import java.util.List;
 
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
-public class CreateUserProfilePresenter implements UserProfilePresenting {
+public class CreateUserProfilePresenter extends UserProfilePresenter {
+
+    public CreateUserProfilePresenter(UserProfileView userListView) {
+        _userProfileView = userListView;
+    }
 
     @Override
-    public Observable<UserProfile> saveUser(UserProfile user, Context context) {
+    public void onStarted() {
+
+    }
+
+    @Override
+    public void onStopped() {
+
+    }
+
+    @Override
+    public void onSaveButtonClicked(UserProfile userProfile) {
+        saveUserAction(userProfile, _userProfileView);
+    }
+
+    @Override
+    protected Observable<UserProfile> saveUser(UserProfile user, Context context) {
         return Observable.create(subscriber -> {
             subscriber.onStart();
 
@@ -48,13 +69,5 @@ public class CreateUserProfilePresenter implements UserProfilePresenting {
         });
     }
 
-    @Override
-    public void onStarted() {
-
-    }
-
-    @Override
-    public void onStopped() {
-
-    }
+    private final UserProfileView _userProfileView;
 }

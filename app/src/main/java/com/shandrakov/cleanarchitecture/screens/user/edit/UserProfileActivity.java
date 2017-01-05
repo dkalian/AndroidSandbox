@@ -8,13 +8,10 @@ import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Toast;
 
-import com.shandrakov.cleanarchitecture.R;
+import com.shandrakov.sandbox.R;
 import com.shandrakov.cleanarchitecture.db.DBTable;
 import com.shandrakov.cleanarchitecture.mvp.BaseActivity;
 import com.shandrakov.cleanarchitecture.screens.user.entity.UserProfile;
-
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class UserProfileActivity extends BaseActivity
                               implements UserProfileView {
@@ -44,8 +41,8 @@ public class UserProfileActivity extends BaseActivity
 
         Action action = Action.valueOf(getIntent().getStringExtra(Action.class.getName()));
 
-        final UserProfilePresenting presenter = action == Action.CREATE
-                ? new CreateUserProfilePresenter()
+        final UserProfilePresenter presenter = action == Action.CREATE
+                ? new CreateUserProfilePresenter(this)
                 : new EditUserProfilePresenter(this,
                 getIntent().getIntExtra(USER_ID_KEY, DBTable.EMPTY_ID));
 
@@ -56,19 +53,8 @@ public class UserProfileActivity extends BaseActivity
         _emailET = getView(R.id.email);
         _button = getView(R.id.save);
         _button.setOnClickListener(view -> {
-                    presenter.saveUser(userFromUI(), this)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(
-                                    userProfile -> {
-                                        finish();
-                                    },
-                                    error -> {
-                                        shoeError(error.getMessage());
-                                    }
-                            );
-                }
-        );
+            presenter.onSaveButtonClicked(userFromUI());
+        });
     }
 
     @Override
@@ -79,7 +65,7 @@ public class UserProfileActivity extends BaseActivity
     }
 
     @Override
-    public void shoeError(String errorMessage) {
+    public void showError(String errorMessage) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
@@ -91,6 +77,11 @@ public class UserProfileActivity extends BaseActivity
     @Override
     public void showSaveButton() {
         _button.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void closeView() {
+       finish();
     }
 
     @Override

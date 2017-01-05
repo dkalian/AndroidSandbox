@@ -16,8 +16,9 @@ import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
-public class EditUserProfilePresenter implements UserProfilePresenting {
+public class EditUserProfilePresenter extends UserProfilePresenter {
 
     public EditUserProfilePresenter(UserProfileView view, int userId) {
         _view = view;
@@ -25,7 +26,33 @@ public class EditUserProfilePresenter implements UserProfilePresenting {
     }
 
     @Override
-    public Observable<UserProfile> saveUser(UserProfile userFromUI, Context context) {
+    public void onStarted() {
+        _view.hideSaveButton();
+        getUserById(_userId)
+                .map(sqlUser -> SqlUserToUserProfile.create().from(sqlUser))
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                userProfile -> {
+                    _view.showSaveButton();
+                    _view.showUser(userProfile);
+                },
+                error -> {
+                    _view.showError(error.getMessage());
+                }
+        );
+    }
+
+    @Override
+    public void onSaveButtonClicked(UserProfile userProfile) {
+        saveUserAction(userProfile, _view);
+    }
+
+    @Override
+    public void onStopped() {
+    }
+
+    @Override
+    protected Observable<UserProfile> saveUser(UserProfile userFromUI, Context context) {
         return Observable.create(subscriber -> {
             subscriber.onStart();
 
@@ -50,27 +77,6 @@ public class EditUserProfilePresenter implements UserProfilePresenting {
         });
     }
 
-    @Override
-    public void onStarted() {
-        _view.hideSaveButton();
-        getUserById(_userId)
-                .map(sqlUser -> SqlUserToUserProfile.create().from(sqlUser))
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                userProfile -> {
-                    _view.showSaveButton();
-                    _view.showUser(userProfile);
-                },
-                error -> {
-
-                }
-        );
-    }
-
-    @Override
-    public void onStopped() {
-
-    }
 
     private Observable<SqlUser> getUserById(int id) {
         return Observable.create(subscriber -> {
