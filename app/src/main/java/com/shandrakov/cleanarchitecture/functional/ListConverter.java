@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.functionals;
+package com.shandrakov.cleanarchitecture.functional;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.shandrakov.cleanarchitecture.functionals;
+package com.shandrakov.cleanarchitecture.functional;
 
 /**
  *  The Either type is sometimes used to represent a value which is either correct or an error;

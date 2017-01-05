@@ -1,7 +1,7 @@
 package com.shandrakov.cleanarchitecture.db;
 
 
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 public class DBColumn implements SqlSpecification {
 

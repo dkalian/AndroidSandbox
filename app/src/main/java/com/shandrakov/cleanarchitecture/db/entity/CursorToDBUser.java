@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 
 import com.shandrakov.cleanarchitecture.db.DBContract;
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 
 public class CursorToDBUser extends CursorConverter<SqlUser>
