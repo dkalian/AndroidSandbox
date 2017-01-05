@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.shandrakov.cleanarchitecture">
+          package="com.shandrakov.sandbox">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.shandrakov.sandbox.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".screens.users.edit.UserProfileActivity"/>
+        <activity android:name="com.shandrakov.sandbox.screens.user.edit.UserProfileActivity"/>
 
     </application>
 
