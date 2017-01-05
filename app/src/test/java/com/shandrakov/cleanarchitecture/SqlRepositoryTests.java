@@ -1,9 +1,9 @@
 package com.shandrakov.cleanarchitecture;
 
-import com.shandrakov.cleanarchitecture.db.SqlRepoExample;
+import com.shandrakov.cleanarchitecture.db.SqlUsersRepository;
 import com.shandrakov.cleanarchitecture.db.entity.SqlUser;
 import com.shandrakov.cleanarchitecture.db.specifications.AllRows;
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +14,6 @@ import org.robolectric.annotation.Config;
 
 import java.util.List;
 
-import rx.Subscriber;
 import rx.observers.TestSubscriber;
 
 import static org.junit.Assert.assertFalse;
@@ -26,13 +25,13 @@ public class SqlRepositoryTests {
 
     @Before
     public void init() {
-        SqlRepoExample repoExample = new SqlRepoExample(RuntimeEnvironment.application);
+        SqlUsersRepository repoExample = new SqlUsersRepository(RuntimeEnvironment.application);
         repoExample.remove(new AllRows());
     }
 
     @Test
     public void crudTest() {
-        SqlRepoExample repoExample = new SqlRepoExample(RuntimeEnvironment.application);
+        SqlUsersRepository repoExample = new SqlUsersRepository(RuntimeEnvironment.application);
 
         SqlUser user = new SqlUser(
                 Maybe.nothing(),
@@ -43,15 +42,7 @@ public class SqlRepositoryTests {
 
         repoExample.add(user);
 
-        TestSubscriber<List<SqlUser>> testSubscriber = new TestSubscriber<>();
-        repoExample.query(new AllRows())
-                .toBlocking()
-                .subscribe(testSubscriber);
-
-        testSubscriber.assertNoErrors();
-        testSubscriber.assertCompleted();
-
-        List<SqlUser> users = testSubscriber.getOnNextEvents().get(0);
+        List<SqlUser> users = repoExample.query(new AllRows());
 
         assertFalse(users.isEmpty());
 
@@ -64,16 +55,7 @@ public class SqlRepositoryTests {
 
         repoExample.update(changedUser);
 
-        repoExample.query(new AllRows())
-                .toBlocking()
-                .subscribe(list -> {
-                    SqlUser updatedUser = list.get(0);
-
-                    assertTrue(updatedUser.id().value().equals(changedUser.id().value()));
-                    assertTrue(updatedUser.email().equals(changedUser.email()));
-                    assertTrue(updatedUser.firstName().equals(changedUser.firstName()));
-                    assertTrue(updatedUser.lastName().equals(changedUser.lastName()));
-                });
+        assertFalse(repoExample.query(new AllRows()).isEmpty());
 
     }
 }

@@ -1,6 +1,6 @@
 package com.shandrakov.cleanarchitecture;
 
-import com.shandrakov.cleanarchitecture.functionals.Either;
+import com.shandrakov.cleanarchitecture.functional.Either;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

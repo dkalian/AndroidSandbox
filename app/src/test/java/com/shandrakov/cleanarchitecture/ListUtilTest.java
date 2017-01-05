@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static com.shandrakov.cleanarchitecture.functionals.ListUtil.*;
+import static com.shandrakov.cleanarchitecture.functional.ListUtil.*;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)

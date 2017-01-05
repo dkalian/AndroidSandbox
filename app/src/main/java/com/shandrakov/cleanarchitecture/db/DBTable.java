@@ -3,7 +3,7 @@ package com.shandrakov.cleanarchitecture.db;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 
-import com.shandrakov.cleanarchitecture.functionals.ListConverter;
+import com.shandrakov.cleanarchitecture.functional.ListConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

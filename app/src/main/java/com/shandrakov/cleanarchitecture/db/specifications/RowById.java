@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RowById implements SqlSpecification {
+
     public RowById(Integer ...ids) {
         _ids = new ArrayList<Integer>(Arrays.asList(ids));
     }

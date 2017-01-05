@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
 
 import com.shandrakov.cleanarchitecture.db.DBContract;
 import com.shandrakov.cleanarchitecture.db.DBTable;
-import com.shandrakov.cleanarchitecture.functionals.Converter;
+import com.shandrakov.cleanarchitecture.functional.Converter;
 
 
 public class DBUserToContentValues implements Converter<SqlUser, ContentValues>,

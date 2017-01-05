@@ -1,8 +1,9 @@
 package com.shandrakov.cleanarchitecture.db.entity;
 
-import com.shandrakov.cleanarchitecture.functionals.Maybe;
+import com.shandrakov.cleanarchitecture.functional.Maybe;
 
 public class SqlUser {
+
     public SqlUser(final Maybe<Integer> id,
                    final Maybe<String> serverId,
                    final String firstName,
@@ -14,6 +15,17 @@ public class SqlUser {
         _lastName = lastName;
         _email = email;
     }
+
+     public SqlUser(final String firstName,
+                    final String lastName,
+                    final String email) {
+        _id = Maybe.nothing();
+        _serverId = Maybe.nothing();
+        _firstName = firstName;
+        _lastName = lastName;
+        _email = email;
+    }
+
 
     public Maybe<Integer> id() {
         return _id;
