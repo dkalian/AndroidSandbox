@@ -64,11 +64,7 @@ public class UsersPresenter implements UsersListPresenting,
     public void onStarted() {
         getUsers(_userListView.context())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        user -> {
-                            _userListView.addUser(user);
-                        }
-                );
+                .subscribe(_userListView::addUser);
     }
 
     @Override

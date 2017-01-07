@@ -23,7 +23,7 @@ public final class ListUtil {
     public static <T> List<T> tail(List<T> list) {
         return list.size() > 1
                 ? list.subList(1, list.size())
-                : new ArrayList<T>();
+                : new ArrayList();
     }
 
     /**
@@ -36,7 +36,7 @@ public final class ListUtil {
     public static <T> List<T> init(List<T> list) {
         return list.size() > 1
                 ? list.subList(0, list.size() - 1)
-                : new ArrayList<T>();
+                : new ArrayList();
     }
 
     /**
@@ -56,7 +56,7 @@ public final class ListUtil {
      *
      */
     public static <T> List<T> take(List<T> list, int n) {
-        if (list.isEmpty()) return new ArrayList<T>();
+        if (list.isEmpty()) return new ArrayList();
         final int takeElements = Math.min(n, list.size());
         return list.subList(0, takeElements);
     }
@@ -68,7 +68,7 @@ public final class ListUtil {
      *
      */
     public static <T> List<T> drop(List<T> list, int n) {
-        if (list.isEmpty()) return new ArrayList<T>();
+        if (list.isEmpty()) return new ArrayList();
         final int dropElements = Math.min(n, list.size());
         return list.subList(dropElements, list.size());
     }

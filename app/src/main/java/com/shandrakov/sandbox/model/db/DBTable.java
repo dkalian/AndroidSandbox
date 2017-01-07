@@ -3,6 +3,7 @@ package com.shandrakov.sandbox.model.db;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 
+import com.shandrakov.sandbox.model.functional.ListConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

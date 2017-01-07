@@ -12,7 +12,7 @@ import java.util.List;
 public class RowById implements SqlSpecification {
 
     public RowById(Integer ...ids) {
-        _ids = new ArrayList<Integer>(Arrays.asList(ids));
+        _ids = new ArrayList(Arrays.asList(ids));
     }
 
     @Override
