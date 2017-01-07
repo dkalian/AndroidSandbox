@@ -1,9 +1,9 @@
 package com.shandrakov.sandbox;
 
-import com.shandrakov.sandbox.db.SqlUsersRepository;
-import com.shandrakov.sandbox.db.entity.SqlUser;
-import com.shandrakov.sandbox.db.specification.AllRows;
-import com.shandrakov.sandbox.functional.Maybe;
+import com.shandrakov.sandbox.model.db.SqlUsersRepository;
+import com.shandrakov.sandbox.model.db.entity.SqlUser;
+import com.shandrakov.sandbox.model.db.specification.AllRows;
+import com.shandrakov.sandbox.model.functional.Maybe;
 
 import org.junit.Before;
 import org.junit.Test;

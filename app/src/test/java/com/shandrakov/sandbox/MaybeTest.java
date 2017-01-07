@@ -1,6 +1,6 @@
 package com.shandrakov.sandbox;
 
-import com.shandrakov.sandbox.functional.Maybe;
+import com.shandrakov.sandbox.model.functional.Maybe;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

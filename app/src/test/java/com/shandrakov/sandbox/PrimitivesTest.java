@@ -1,8 +1,8 @@
 package com.shandrakov.sandbox;
 
-import com.shandrakov.sandbox.primitive.CountryCode;
-import com.shandrakov.sandbox.primitive.Email;
-import com.shandrakov.sandbox.primitive.Name;
+import com.shandrakov.sandbox.model.primitive.CountryCode;
+import com.shandrakov.sandbox.model.primitive.Email;
+import com.shandrakov.sandbox.model.primitive.Name;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

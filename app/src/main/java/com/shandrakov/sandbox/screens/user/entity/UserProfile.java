@@ -1,9 +1,9 @@
 package com.shandrakov.sandbox.screens.user.entity;
 
-import com.shandrakov.sandbox.functional.Maybe;
-import com.shandrakov.sandbox.functional.Validate;
-import com.shandrakov.sandbox.primitive.Email;
-import com.shandrakov.sandbox.primitive.Name;
+import com.shandrakov.sandbox.model.functional.Maybe;
+import com.shandrakov.sandbox.model.functional.Validate;
+import com.shandrakov.sandbox.model.primitive.Email;
+import com.shandrakov.sandbox.model.primitive.Name;
 
 public class UserProfile implements Validate {
 
