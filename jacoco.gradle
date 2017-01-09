@@ -5,7 +5,7 @@ def coverageSourceDirs = [
 ]
 
 jacoco {
-    toolVersion = "0.7.6.+"
+    toolVersion = "0.7.6.201602180812"
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
