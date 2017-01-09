@@ -1,16 +1,17 @@
 package com.shandrakov.sandbox.presentation.common;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import rx.functions.Action1;
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
 
-    public void register(BasePresenter presenter) {
+    public <T extends BasePresenter> T register(T presenter) {
         _presenters.add(presenter);
+        return presenter;
     }
 
     @Override
