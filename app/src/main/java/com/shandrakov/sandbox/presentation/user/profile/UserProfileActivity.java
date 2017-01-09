@@ -91,9 +91,9 @@ public class UserProfileActivity extends BaseActivity
 
     private final UserProfile userFromUI() {
         return new UserProfile(
-                _firstNameET.getText().toString(),
-                _lastNameET.getText().toString(),
-                _emailET.getText().toString());
+                _firstNameET.getText().toString().trim(),
+                _lastNameET.getText().toString().trim(),
+                _emailET.getText().toString().trim());
     }
 
     private <T extends View> T getView(int id) {
