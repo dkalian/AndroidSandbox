@@ -1,33 +1,36 @@
-package com.shandrakov.sandbox;
+package com.shandrakov.sandbox.presentation.main;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity;
-import com.shandrakov.sandbox.presentation.user.list.UsersListFragment;
+import com.shandrakov.sandbox.R;
+import com.shandrakov.sandbox.presentation.common.BaseActivity;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity
+                       implements NavigationView.OnNavigationItemSelectedListener,
+                                  MainView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.shandrakov.sandbox.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+
+        final MainPresenting presenter = register(new MainPresenter(this, new MainActivityRouter(this)));
+
         Toolbar toolbar = (Toolbar) findViewById(com.shandrakov.sandbox.R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(com.shandrakov.sandbox.R.id.fab);
-        fab.setOnClickListener(view -> {
-            createNewUser();
-        });
+        fab.setOnClickListener(view -> {presenter.onCreateNewUserButtonPressed();});
 
         DrawerLayout drawer = (DrawerLayout) findViewById(com.shandrakov.sandbox.R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,11 +40,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(com.shandrakov.sandbox.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        getFragmentManager()
-                .beginTransaction()
-                .replace(com.shandrakov.sandbox.R.id.content_fragment, new UsersListFragment())
-                .commit();
     }
 
     @Override
@@ -96,7 +94,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void createNewUser() {
-        UserProfileActivity.startCreatingActivity(this);
+    @Override
+    public Context context() {
+        return this;
+    }
+
+    @Override
+    public void showError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }
