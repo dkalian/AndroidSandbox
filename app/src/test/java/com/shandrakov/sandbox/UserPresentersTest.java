@@ -7,9 +7,9 @@ import com.shandrakov.sandbox.model.db.entity.SqlUser;
 import com.shandrakov.sandbox.model.db.specification.AllRows;
 import com.shandrakov.sandbox.model.functional.Maybe;
 import com.shandrakov.sandbox.model.repository.Repository;
-import com.shandrakov.sandbox.screens.user.entity.UserName;
-import com.shandrakov.sandbox.screens.user.list.UserListView;
-import com.shandrakov.sandbox.screens.user.list.UsersPresenter;
+import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.list.UserListView;
+import com.shandrakov.sandbox.presentation.user.list.UsersPresenter;
 
 import org.junit.Before;
 import org.junit.Test;

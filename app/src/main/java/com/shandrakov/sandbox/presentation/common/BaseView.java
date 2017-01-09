@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.model.mvp;
+package com.shandrakov.sandbox.presentation.common;
 
 import android.content.Context;
 

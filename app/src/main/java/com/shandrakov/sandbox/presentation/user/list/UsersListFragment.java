@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.list;
+package com.shandrakov.sandbox.presentation.user.list;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shandrakov.sandbox.R;
-import com.shandrakov.sandbox.model.mvp.BaseFragment;
-import com.shandrakov.sandbox.screens.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.common.BaseFragment;
+import com.shandrakov.sandbox.presentation.user.entity.UserName;
 
 public class UsersListFragment extends BaseFragment
                             implements UserListView {

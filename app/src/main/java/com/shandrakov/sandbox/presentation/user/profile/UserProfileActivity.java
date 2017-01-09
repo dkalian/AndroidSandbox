@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.profile;
+package com.shandrakov.sandbox.presentation.user.profile;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.shandrakov.sandbox.R;
 import com.shandrakov.sandbox.model.db.DBTable;
-import com.shandrakov.sandbox.model.mvp.BaseActivity;
-import com.shandrakov.sandbox.screens.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.common.BaseActivity;
+import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
 
 public class UserProfileActivity extends BaseActivity
                               implements UserProfileView {

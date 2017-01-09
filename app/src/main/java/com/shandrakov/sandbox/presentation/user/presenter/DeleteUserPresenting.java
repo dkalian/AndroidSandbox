@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.presenter;
+package com.shandrakov.sandbox.presentation.user.presenter;
 
 import android.content.Context;
 

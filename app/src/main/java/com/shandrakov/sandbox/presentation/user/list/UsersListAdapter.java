@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.list;
+package com.shandrakov.sandbox.presentation.user.list;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shandrakov.sandbox.R;
-import com.shandrakov.sandbox.screens.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.entity.UserName;
 
 import java.util.ArrayList;
 import java.util.List;

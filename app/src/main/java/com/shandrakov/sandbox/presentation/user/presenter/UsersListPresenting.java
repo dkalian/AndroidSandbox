@@ -1,6 +1,6 @@
-package com.shandrakov.sandbox.screens.user.presenter;
+package com.shandrakov.sandbox.presentation.user.presenter;
 
-import com.shandrakov.sandbox.screens.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.entity.UserName;
 
 public interface UsersListPresenting {
     void onUserItemSwiped(UserName userName, int item);

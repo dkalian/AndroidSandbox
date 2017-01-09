@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.shandrakov.sandbox.screens.user.profile.UserProfileActivity"/>
+        <activity android:name="com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity"/>
 
     </application>
 

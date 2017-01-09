@@ -1,9 +1,9 @@
-package com.shandrakov.sandbox.screens.user.profile;
+package com.shandrakov.sandbox.presentation.user.profile;
 
 import android.content.Context;
 
-import com.shandrakov.sandbox.model.mvp.BasePresenter;
-import com.shandrakov.sandbox.screens.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.common.BasePresenter;
+import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

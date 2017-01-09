@@ -1,16 +1,16 @@
-package com.shandrakov.sandbox.screens.user.list;
+package com.shandrakov.sandbox.presentation.user.list;
 
 import android.content.Context;
 
 import com.shandrakov.sandbox.model.db.SqlUsersRepository;
 import com.shandrakov.sandbox.model.db.specification.AllRows;
 import com.shandrakov.sandbox.model.db.specification.RowById;
-import com.shandrakov.sandbox.model.mvp.BasePresenter;
-import com.shandrakov.sandbox.screens.user.converter.SqlUserToUserName;
-import com.shandrakov.sandbox.screens.user.profile.UserProfileActivity;
-import com.shandrakov.sandbox.screens.user.entity.UserName;
-import com.shandrakov.sandbox.screens.user.presenter.DeleteUserPresenting;
-import com.shandrakov.sandbox.screens.user.presenter.UsersListPresenting;
+import com.shandrakov.sandbox.presentation.common.BasePresenter;
+import com.shandrakov.sandbox.presentation.user.converter.SqlUserToUserName;
+import com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity;
+import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.presenter.DeleteUserPresenting;
+import com.shandrakov.sandbox.presentation.user.presenter.UsersListPresenting;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

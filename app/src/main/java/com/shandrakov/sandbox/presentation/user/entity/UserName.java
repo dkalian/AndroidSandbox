@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.entity;
+package com.shandrakov.sandbox.presentation.user.entity;
 
 public class UserName {
 

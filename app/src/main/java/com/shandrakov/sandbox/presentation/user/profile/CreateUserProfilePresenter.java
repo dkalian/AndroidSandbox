@@ -1,4 +1,4 @@
-package com.shandrakov.sandbox.screens.user.profile;
+package com.shandrakov.sandbox.presentation.user.profile;
 
 import android.content.Context;
 
@@ -7,9 +7,9 @@ import com.shandrakov.sandbox.model.db.entity.SqlUser;
 import com.shandrakov.sandbox.model.db.specification.UserByEmail;
 import com.shandrakov.sandbox.model.functional.ListUtil;
 import com.shandrakov.sandbox.model.repository.Repository;
-import com.shandrakov.sandbox.screens.user.converter.SqlUserToUserProfile;
-import com.shandrakov.sandbox.screens.user.converter.UserProfileToSqlUser;
-import com.shandrakov.sandbox.screens.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.user.converter.SqlUserToUserProfile;
+import com.shandrakov.sandbox.presentation.user.converter.UserProfileToSqlUser;
+import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
 
 import java.util.List;
 
