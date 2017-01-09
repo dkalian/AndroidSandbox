@@ -1,9 +1,9 @@
-package com.shandrakov.sandbox.presentation.user.converter;
+package com.shandrakov.sandbox.presentation.user.common.converter;
 
 import com.shandrakov.sandbox.model.db.DBTable;
 import com.shandrakov.sandbox.model.db.entity.SqlUser;
 import com.shandrakov.sandbox.model.functional.Converter;
-import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserName;
 
 public class SqlUserToUserName implements Converter<SqlUser, UserName> {
 

@@ -8,9 +8,9 @@ import com.shandrakov.sandbox.model.db.specification.RowById;
 import com.shandrakov.sandbox.model.db.specification.UserByEmail;
 import com.shandrakov.sandbox.model.functional.ListUtil;
 import com.shandrakov.sandbox.model.repository.Repository;
-import com.shandrakov.sandbox.presentation.user.converter.SqlUserToUserProfile;
-import com.shandrakov.sandbox.presentation.user.converter.UserProfileToSqlUser;
-import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.user.common.converter.SqlUserToUserProfile;
+import com.shandrakov.sandbox.presentation.user.common.converter.UserProfileToSqlUser;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserProfile;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import com.shandrakov.sandbox.model.db.entity.SqlUser;
 import com.shandrakov.sandbox.model.db.specification.AllRows;
 import com.shandrakov.sandbox.model.functional.Maybe;
 import com.shandrakov.sandbox.model.repository.Repository;
-import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserName;
 import com.shandrakov.sandbox.presentation.user.list.UserListView;
 import com.shandrakov.sandbox.presentation.user.list.UsersPresenter;
 

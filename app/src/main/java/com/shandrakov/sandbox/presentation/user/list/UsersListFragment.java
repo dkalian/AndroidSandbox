@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.shandrakov.sandbox.R;
 import com.shandrakov.sandbox.presentation.common.BaseFragment;
-import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserName;
 
 public class UsersListFragment extends BaseFragment
                             implements UserListView {

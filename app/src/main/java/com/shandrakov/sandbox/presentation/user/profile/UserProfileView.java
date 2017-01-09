@@ -1,7 +1,7 @@
 package com.shandrakov.sandbox.presentation.user.profile;
 
 import com.shandrakov.sandbox.presentation.common.BaseView;
-import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserProfile;
 
 public interface UserProfileView extends BaseView{
 

@@ -3,7 +3,7 @@ package com.shandrakov.sandbox.presentation.user.profile;
 import android.content.Context;
 
 import com.shandrakov.sandbox.presentation.common.BasePresenter;
-import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserProfile;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

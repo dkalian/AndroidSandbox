@@ -2,7 +2,7 @@ package com.shandrakov.sandbox.presentation.main;
 
 public class MainPresenter implements MainPresenting
 {
-    public MainPresenter(MainView view, MainActivityRouter router) {
+    public MainPresenter(MainView view, MainActivityRouting router) {
         _mainView = view;
         _router = router;
     }
@@ -23,5 +23,5 @@ public class MainPresenter implements MainPresenting
     }
 
     private final MainView _mainView;
-    private final MainActivityRouter _router;
+    private final MainActivityRouting _router;
 }

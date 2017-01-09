@@ -6,11 +6,11 @@ import com.shandrakov.sandbox.model.db.SqlUsersRepository;
 import com.shandrakov.sandbox.model.db.specification.AllRows;
 import com.shandrakov.sandbox.model.db.specification.RowById;
 import com.shandrakov.sandbox.presentation.common.BasePresenter;
-import com.shandrakov.sandbox.presentation.user.converter.SqlUserToUserName;
+import com.shandrakov.sandbox.presentation.user.common.converter.SqlUserToUserName;
 import com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity;
-import com.shandrakov.sandbox.presentation.user.entity.UserName;
-import com.shandrakov.sandbox.presentation.user.presenter.DeleteUserPresenting;
-import com.shandrakov.sandbox.presentation.user.presenter.UsersListPresenting;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.common.presenter.DeleteUserPresenting;
+import com.shandrakov.sandbox.presentation.user.common.presenter.UsersListPresenting;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

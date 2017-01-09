@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.shandrakov.sandbox.R;
-import com.shandrakov.sandbox.presentation.user.entity.UserName;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserName;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
-package com.shandrakov.sandbox.presentation.user.converter;
+package com.shandrakov.sandbox.presentation.user.common.converter;
 
 import com.shandrakov.sandbox.model.db.entity.SqlUser;
 import com.shandrakov.sandbox.model.functional.Converter;
-import com.shandrakov.sandbox.presentation.user.entity.UserProfile;
+import com.shandrakov.sandbox.presentation.user.common.entity.UserProfile;
 
 public class SqlUserToUserProfile implements Converter<SqlUser, UserProfile> {
     private SqlUserToUserProfile() {}
