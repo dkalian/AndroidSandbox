@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.shandrakov.sandbox.R;
 import com.shandrakov.sandbox.presentation.common.BaseActivity;
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MainPresenting presenter = register(new MainPresenter(this));
+        final MainPresenting presenter = register(new MainPresenter(this, new MainActivityRouter(this)));
 
         Toolbar toolbar = (Toolbar) findViewById(com.shandrakov.sandbox.R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -93,9 +94,13 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-
     @Override
     public Context context() {
         return this;
+    }
+
+    @Override
+    public void showError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 }

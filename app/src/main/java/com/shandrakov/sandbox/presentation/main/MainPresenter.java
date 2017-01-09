@@ -1,28 +1,20 @@
 package com.shandrakov.sandbox.presentation.main;
 
-import android.support.v7.app.AppCompatActivity;
-
-import com.shandrakov.sandbox.presentation.user.list.UsersListFragment;
-import com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity;
-
 public class MainPresenter implements MainPresenting
 {
-    public MainPresenter(MainView view) {
+    public MainPresenter(MainView view, MainActivityRouter router) {
         _mainView = view;
+        _router = router;
     }
 
     @Override
     public void onCreateNewUserButtonPressed() {
-        UserProfileActivity.startCreatingActivity(_mainView.context());
+        _router.showCreateProfileScreen();
     }
 
     @Override
     public void onStarted() {
-        final AppCompatActivity activity = (AppCompatActivity) _mainView.context();
-        activity.getFragmentManager()
-                .beginTransaction()
-                .replace(com.shandrakov.sandbox.R.id.content_fragment, new UsersListFragment())
-                .commit();
+        _router.showUsersListScreen();
     }
 
     @Override
@@ -31,4 +23,5 @@ public class MainPresenter implements MainPresenting
     }
 
     private final MainView _mainView;
+    private final MainActivityRouter _router;
 }
