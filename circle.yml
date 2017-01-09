@@ -7,4 +7,13 @@ dependencies:
 test:
   override:
     - ./gradlew assembleDebug
+
+# copy apk
     - cp -r app/build/outputs/apk/ $CIRCLE_ARTIFACTS
+
+    - ./gradlew test
+    - ./gradlew jacocoTestReport
+
+# copy test results
+    - cp -r app/build/reports/jacoco/jacocoTestReport/ $CIRCLE_ARTIFACTS
+    
