@@ -3,3 +3,8 @@ dependencies:
       - echo y | android update sdk --no-ui --all --filter "build-Tools-24.0.2"
       - echo y | android update sdk --no-ui --all --filter "android-24"
       - echo y | android update sdk --no-ui --all --filter "platform-tools"
+
+test:
+  override:
+    - ./gradlew assembleDebug
+    - cp -r app/build/outputs/apk/ $CIRCLE_ARTIFACTS
