@@ -9,8 +9,9 @@ import rx.functions.Action1;
 
 public abstract class BaseFragment extends Fragment {
 
-    public void register(BasePresenter presenter) {
+    public <T extends BasePresenter> T register(T presenter) {
         _presenters.add(presenter);
+        return presenter;
     }
 
     @Override
