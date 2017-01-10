@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.shandrakov.sandbox.MainActivity"
+            android:name="com.shandrakov.sandbox.presentation.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.shandrakov.sandbox.screens.user.edit.UserProfileActivity"/>
+        <activity android:name="com.shandrakov.sandbox.presentation.user.profile.UserProfileActivity"/>
 
     </application>
 
