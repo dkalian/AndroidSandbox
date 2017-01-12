@@ -1,6 +1,5 @@
 package com.shandrakov.sandbox.model.db;
 
-
 import com.shandrakov.sandbox.model.functional.Maybe;
 
 public class DBColumn implements SqlSpecification {
